@@ -20,7 +20,26 @@
 
   <main>
     <h1>Contact</h1>
-    <p>Email me at: <a href="laythmarabeh@gmail.com">laythmarabeh@gmail.com</a></p>
+
+<form action="mailto:laythmarabeh@gmail.com" method="POST">
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject">
+
+      <label for="message">Body:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Submit</button>
+
+</form>
+
+
   </main>
 </body>
 </html>
