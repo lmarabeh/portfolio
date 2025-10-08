@@ -4,3 +4,8 @@ body {
 	 */
   font: 100%/1.5 system-ui;
 }
+div {
+  height: 100px;
+  width: 20%;
+  background-color: powderblue;
+}
