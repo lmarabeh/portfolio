@@ -3,9 +3,9 @@ body {
 	   and use the OS’s UI font as the website font
 	 */
   font: 100%/1.5 system-ui;
+  & 
+  div {
+  height: 200px;
+  width: 60%;
 }
-div {
-  height: 100px;
-  width: 20%;
-  background-color: powderblue;
 }
