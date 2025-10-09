@@ -3,4 +3,43 @@ body {
 	   and use the OS’s UI font as the website font
 	 */
   font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin: auto;
+  padding: 5ch;
+}
+
+.current {
+  display: flex;
+  justify-content: center;
+  gap: 8rem; 
+  list-style-type: none;
+  margin: 0;
+  padding: 1em;;
+}
+
+.current a {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  padding: 0.5em;
+}
+
+nav {
+  margin-bottom: 3ch;
+  border-bottom-width: 7px;
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200);
+}
+
+a:hover {
+  background-color: teal;
+}
+
+html {
+  accent-color: green;
+}
+
+form {
+  display: grid;
 }
