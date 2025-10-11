@@ -8,6 +8,9 @@ body {
   padding: 5ch;
 }
 
+figure{
+  margin-inline: 0;
+}
 .current {
   display: flex;
   justify-content: center;
@@ -68,4 +71,57 @@ form button {
 
 .projects h2 {
   margin: 1.5;
+}
+
+main > a[href*="linkedin"] {
+  display: inline-block;
+  margin-bottom: 2em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background-color: oklch(55% 0.15 240);
+  border-radius: 5px;
+}
+
+#education, #work-history {
+  display: grid;
+  gap: 2em;
+  margin-bottom: 2em;
+}
+
+#education h2, #work-history h2 {
+  margin: 0;
+}
+
+#work-history article {
+  border-left: 3px solid oklch(80% 3% 200); 
+  padding-left: 2em;
+  margin-bottom: 2em;
+}
+
+#education > ul > li {
+  border-left: 3px solid oklch(80% 3% 200);
+  padding-left: 2em;
+  margin-bottom: 2em;
+  list-style: none; 
+}
+
+#education > ul, #work-history article > ul {
+  padding-left: 0;
+  margin-top: 0.5em;
+}
+
+#work-history article > ul, #education ul {
+  padding-left: 1.2em;
+}
+
+#work-history h3, #education h3 {
+  margin-bottom: 0.25em;
+  font-size: 1.2em;
+}
+
+#work-history article > p, #education > ul > li > p {
+  color: #555; 
+  margin: 0;
 }
