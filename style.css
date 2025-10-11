@@ -42,4 +42,30 @@ html {
 
 form {
   display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+form button {
+  grid-column: span 2;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.3em;
+}
+
+.projects{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+}
+
+.projects article {
+  grid-row: span 3;
+  gap: 1em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.projects h2 {
+  margin: 1.5;
 }
