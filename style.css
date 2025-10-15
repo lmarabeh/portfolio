@@ -11,7 +11,7 @@ body {
 figure{
   margin-inline: 0;
 }
-.current {
+nav ul{
   display: flex;
   justify-content: center;
   gap: 8rem; 
@@ -20,7 +20,7 @@ figure{
   padding: 1em;;
 }
 
-.current a {
+nav ul a {
   font-weight: bold;
   text-decoration: none;
   color: black;
