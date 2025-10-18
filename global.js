@@ -14,7 +14,7 @@ function $$(selector, context = document) {
 
 // global.js
 
-// 1. Define pages with paths relative to the site root
+// Define pages with paths 
 let pages = [
   { url: 'index.html', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
@@ -23,23 +23,22 @@ let pages = [
   { url: 'https://github.com/lmarabeh', title: 'GitHub' },
 ];
 
-// 2. Define the correct BASE_PATH
+// Define the correct BASE_PATH
 const BASE_PATH =
   location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? '/' // Local server root
     : '/portfolio/'; // Your GitHub Pages repo name
 
-// 3. Create the nav and ul elements
+// Create the nav and ul elements
 let nav = document.createElement('nav');
 let ul = document.createElement('ul');
 nav.append(ul);
 
-// 4. Loop through each page to create the links
+// Loop through each page to create the links
 for (let p of pages) {
   let url = p.url;
   let title = p.title;
 
-  // 5. ✅ THIS IS THE FIX:
   // Prepend the BASE_PATH to all internal links
   if (!url.startsWith('http')) {
     url = BASE_PATH + url;
@@ -48,9 +47,6 @@ for (let p of pages) {
   const li = document.createElement('li');
   const a = document.createElement('a');
   
-  // The href will now be correct
-  // e.g., locally: "/projects/"
-  // on GitHub: "/portfolio/projects/"
   a.href = url;
   a.textContent = title;
 
@@ -64,6 +60,6 @@ for (let p of pages) {
   ul.append(li);
 }
 
-// 6. Attach the finished navigation menu to the webpage
+// Attach the finished navigation menu to the webpage
 document.body.prepend(nav);
 
