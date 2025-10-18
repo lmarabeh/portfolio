@@ -63,3 +63,107 @@ for (let p of pages) {
 // Attach the finished navigation menu to the webpage
 document.body.prepend(nav);
 
+// Theme switcher
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+  <div class="theme-switcher">
+    <label for="theme">Theme:</label>
+    <select id="theme">
+      <option value="auto">Auto</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </div>
+  `
+);
+
+// Get the elements *after* they are on the page
+const themeSelect = document.getElementById('theme');
+const htmlElement = document.documentElement; // This is the <html> tag
+
+// Apply theme 
+function applyTheme(theme) {
+  if (theme === 'auto') {
+    // Check system preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      htmlElement.dataset.theme = 'dark';
+    } else {
+      htmlElement.removeAttribute('data-theme');
+    }
+  } else if (theme === 'dark') {
+    // Set the data-theme attribute to "dark"
+    htmlElement.dataset.theme = 'dark';
+  } else {
+    // 'light'
+    htmlElement.removeAttribute('data-theme');
+  }
+}
+
+// Save user input
+function saveTheme(theme) {
+  localStorage.setItem('theme', theme);
+}
+
+// Listen for a change on the dropdown
+themeSelect.addEventListener('change', () => {
+  const selectedTheme = themeSelect.value;
+  applyTheme(selectedTheme);
+  saveTheme(selectedTheme);
+});
+
+// Apply the saved theme when the page loads
+const savedTheme = localStorage.getItem('theme') || 'auto';
+themeSelect.value = savedTheme;
+applyTheme(savedTheme);
+
+// select.addEventListener('input', function (event) {
+//   console.log('color scheme changed to', event.target.value);
+// });
+
+// const themeSelect = document.getElementById('theme');
+// const htmlElement = document.documentElement;
+
+// function applyTheme(theme) {
+//   if (theme === 'auto') {
+//     // Check system preference
+//     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+//     if (prefersDark) {
+//       htmlElement.dataset.theme = 'dark';
+//     } else {
+//       // Back to default
+//       htmlElement.removeAttribute('data-theme');
+//     }
+//   } else if (theme === 'dark') {
+//     // Set the data-theme attribute to "dark"
+//     htmlElement.dataset.theme = 'dark';
+//   } else {
+//     // 'light'
+//     htmlElement.removeAttribute('data-theme');
+//   }
+// }
+
+// // 9. This function saves the user's choice in their browser
+// function saveTheme(theme) {
+//   localStorage.setItem('theme', theme);
+// }
+
+// // 10. Listen for a change on the dropdown
+// themeSelect.addEventListener('change', () => {
+//   const selectedTheme = themeSelect.value;
+//   applyTheme(selectedTheme);
+//   saveTheme(selectedTheme);
+// });
+
+
+// // Run on every page
+
+// // 11. Get the user's saved theme from localStorage, or default to "auto"
+// const savedTheme = localStorage.getItem('theme') || 'auto';
+
+// // 12. Set the dropdown to show the saved theme
+// themeSelect.value = savedTheme;
+
+// // 13. Apply the saved theme immediately
+// applyTheme(savedTheme);

@@ -23,8 +23,8 @@ nav ul{
 nav ul a {
   font-weight: bold;
   text-decoration: none;
-  color: black;
   text-align: center;
+  color: inherit;
   padding: 0.5em;
 }
 
@@ -32,7 +32,7 @@ nav {
   margin-bottom: 3ch;
   border-bottom-width: 7px;
   border-bottom-style: solid;
-  border-bottom-color: oklch(80% 3% 200);
+  border-bottom-color: oklch(50% 10% 200 / 40%);;
 }
 
 a:hover {
@@ -124,4 +124,23 @@ main > a[href*="linkedin"] {
 #work-history article > p, #education > ul > li > p {
   color: #555; 
   margin: 0;
+}
+
+:root {
+  color-scheme: light;
+  --bg-color: #ffffff;
+  --text-color: #222222;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-color: #222222;
+  --text-color: #f0f0f0;
+}
+
+.theme-switcher {
+  position: fixed;
+  top: 1rem; 
+  right: 1rem; 
+  z-index: 1000; 
 }
