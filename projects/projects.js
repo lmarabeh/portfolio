@@ -9,17 +9,25 @@ async function loadProjects() {
   // Find the container on the page
   const projectsContainer = document.querySelector('.projects');
 
+  // Counter for title
+  const projectsTitle = document.querySelector('.projects-title');
+
   // Check if we found the data and the container
   if (projects && projectsContainer) {
     
-    // Clear the container (Step 2 from your instructions)
+    // Clear the container 
     projectsContainer.innerHTML = ''; 
 
-    // Loop through the projects (This is your loop!)
+    // Update the title with the number of projects
+    if (projectsTitle) {
+      projectsTitle.textContent = `${projects.length} Projects`;
+    }
+
+    // Loop through the projects
     projects.forEach(project => {
       
-      // 8. Call your helper function for EACH project
-            renderProjects(project, projectsContainer, 'h3'); // Using 'h3' as an example
+      // Call helper function for EACH project
+            renderProjects(project, projectsContainer, 'h3'); 
     });
     
   } else {
@@ -27,5 +35,5 @@ async function loadProjects() {
   }
 }
 
-// 9. Run your main function to start everything
+// Call the main function to load projects when the page loads
 loadProjects();
