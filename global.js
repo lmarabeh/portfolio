@@ -118,6 +118,7 @@ const savedTheme = localStorage.getItem('theme') || 'auto';
 themeSelect.value = savedTheme;
 applyTheme(savedTheme);
 
+// Projects helper functions
 export async function fetchJSON(url) {
   try {
     // Fetch the JSON file from the given URL
@@ -130,4 +131,15 @@ export async function fetchJSON(url) {
   } catch (error) {
     console.error('Error fetching or parsing JSON data:', error);
   }
+}
+
+// Create a renderProjects function 
+export function renderProjects(project, containerElement, headingLevel = 'h2') {
+  const article = document.createElement('article');
+  article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+  `;
+  containerElement.appendChild(article);
 }
