@@ -200,7 +200,7 @@
             interacts with would create a more positive initial impression of the data.
           </li>
           <li>
-            Historical context given to frame the data. Score: 0.5. This provides background information that helps the reader frame the data 
+            Historical context given to frame the data. Score: -0.5. This provides background information that helps the reader frame the data 
             and in my view, increases the credibility of the visualization. I initially thought of leaving this out, however, I felt I needed to add 
             an earnest attempt at credibility to make the visualization more convincing.
           </li>
@@ -220,7 +220,31 @@
         <h2>Final Reflection</h2>
 
         <p>
-          [WRITE FINAL REFLECTION PARAGRAPHS HERE.]
+          The dataset that I decided to work with came from the International Monetary Fund and contained information about GHG emissions and mitigation efforts. 
+          When initially analyzing the data set I noticed that there were some regions of the world that already had aggregates in the dataset and some that had been left
+          out and logged individually. After using describe and other methods within pandas to understand the data set I knew that the earnest plot would have to do with some sort of total emissions. 
+          This line of thinking was straight forward however, I struggled in deciding what aggregate to use for representing total emissions. I 
+          decided to use the Advanced Economies aggregate as “Advanced Economies” are known to be higher emitters due to high industrial activity. 
+          I then moved on to creating the deceitful plot and after going through many iterations and different transformations I settled on the creating a 
+          new column to reflect the difference between net and gross emissions, giving me the amount produced by the “land sink.” This column essentially reflected the amount of emissions that 
+          were reabsorbed by vegetation in the given aggregate or individual state. It was then that I realized I could actually take what was meant to be deceitful and add it to the earnest visualization in order to increase 
+          transparency and also highlight the severity of the lack of effectiveness in emission reduction. The choice was also made to only utilize the value for greenhouse gas emissions. This was a mostly 
+          deceitful tactic as it completely removes the values for nitrous oxide and methane, two gases that are generally emitted naturally and would have offset the total absorption rate. 
+          However, this decision is justified as I filtered by use of CO2 equivalence only for the sake or uniformity. 
+        </p>
+        
+        <p>
+          This assignment felt as though it would be straight forward but quickly turned into something that required much creativity. Multiple iterations of each plot 
+          were created and each one came with its own set or progressions and regressions. However, one of the most surprising things that I learned is that an earnest technique 
+          could inaccurately portray the data and not only confuse readers, but lead them to an entirely incorrect conclusion. I learned this with my second or third set of plots and 
+          utilized this in my final visualizations. An example of this in my visualizations is the use of historical context in both. Notice I gave the context a very high earnest score of 2 for the earnest plot and a slightly deceitful score 
+          of -0.5 for the deceitful plot. This is because in the earnest plot the point was to highlight recent events to frame the data as recent. Whereas for the deceitful plot it was meant to relax any sense of urgency and 
+          ensure that the reader felt this was a credible depiction of what has been happening in recent times. The tactic was roughly the same but had different intents, which is precisely what can be said about many strategies when creating
+          compelling visualizations. I would define ethical analysis and visualization to be an objective portrayal of the data. Persuasive tactics could be used if the data itself is particularly 
+          complicated or increasingly difficult to understand for the layperson. The line between acceptable and misleading persuasive choices can be drawn at either blatant data manipulation or deliberate omission of 
+          crucial data that could sway a person one way or another. For example, if data is left out to avoid confusing the reader or to accurately portray the severity or reality of a topic then this I would personally 
+          consider to be acceptable. However, omission of data to make sure there is nothing that would persuade the reader to any conclusion except the one the author offers would be misleading and unacceptable in my view. 
+          This takes away the readers ability to come to an informed conclusion and simply offers them a conclusion with little to no consideration. 
         </p>
       </section>
     </main>
