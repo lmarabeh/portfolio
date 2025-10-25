@@ -1,4 +1,4 @@
-import { fetchJSON, renderProjects} from './global.js';
+import { fetchJSON, renderProjects, fetchGithubData} from './global.js';
 const projects = await fetchJSON('./lib/projects.json');
 
 async function loadProjects() {
@@ -30,7 +30,7 @@ async function loadProjects() {
 loadProjects();
 
 // Fetch GitHub profile data
-const githubData = await fetchGitHubData('lmarabeh');
+const githubData = await fetchGithubData('lmarabeh');
 const profileStats = document.querySelector('#profile-stats');
 
 if (profileStats) {

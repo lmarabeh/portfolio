@@ -1,13 +1,15 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
+        "title": "Principal Component Analysis: Discovering Principal Components of Biologically Relevant Therapeutics.",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore ab quasi beatae porro similique voluptatibus tempore libero voluptates aspernatur enim ex id debitis ratione asperiores, magni, optio pariatur. Tenetur, perferendis."
+        "description": "Discovering Principal Components of Biologically Relevant Therapeutics using PCA and Clustering Techniques."
     },
     {
-        "title": "Culpa libero praesentium expedita?",
+        "title": "Steam Review Analysis.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Culpa asperiores consequatur recusandae distinctio aliquam debitis suscipit, cumque quisquam saepe inventore itaque iste nesciunt natus atque tempora architecto doloremque illo explicabo harum ipsum et dolorum. Nemo laboriosam numquam officiis."
+        "year": "2025",
+        "description": "examine a dataset containing more than 100 million Steam reviews and attempt to create two machine learning models: one to predict the helpfulness of user reviews, and the other to create distinct clusters of Steam reviewers."
     },
     {
         "title": "Magni dignissimos maiores eaque?",

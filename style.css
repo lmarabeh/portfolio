@@ -156,3 +156,30 @@ main > a[href*="linkedin"] {
   right: 1rem; 
   z-index: 1000; 
 }
+
+/* Profile Stat CSS */
+#profile-stats dl {
+  /* 1. Apply grid and set up 4 equal columns */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  
+  /* Optional: Add a gap between columns */
+  gap: 1rem;
+}
+
+#profile-stats dt {
+  /* 2. Force all <dt> (labels) onto the first row */
+  grid-row: 1;
+  
+  /* Optional: Style the labels */
+  font-weight: bold;
+}
+
+#profile-stats dd {
+  /* 3. Force all <dd> (values) onto the second row */
+  grid-row: 2;
+  
+  /* Optional: Style the values */
+  text-align: center;
+  margin: 0; /* Remove default <dd> margin */
+}
