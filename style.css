@@ -183,3 +183,18 @@ main > a[href*="linkedin"] {
   text-align: center;
   margin: 0; /* Remove default <dd> margin */
 }
+
+/* change color on year div on project page */
+.projects article div {
+  color: oklch(72.372% 0.00692 16.664);
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* SVG styling for projects page */
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}

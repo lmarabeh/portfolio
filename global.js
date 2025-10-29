@@ -142,6 +142,10 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
       <p>${project.description}</p>
   `;
   containerElement.appendChild(article);
+  // Show year of project in div tag
+  const yearDiv = document.createElement('div');
+  yearDiv.textContent = `Year: ${project.year}`;
+  article.appendChild(yearDiv);
 }
 
 // Github API function
