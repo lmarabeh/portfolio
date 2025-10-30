@@ -159,29 +159,20 @@ main > a[href*="linkedin"] {
 
 /* Profile Stat CSS */
 #profile-stats dl {
-  /* 1. Apply grid and set up 4 equal columns */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  
-  /* Optional: Add a gap between columns */
   gap: 1rem;
 }
 
 #profile-stats dt {
-  /* 2. Force all <dt> (labels) onto the first row */
   grid-row: 1;
-  
-  /* Optional: Style the labels */
   font-weight: bold;
 }
 
 #profile-stats dd {
-  /* 3. Force all <dd> (values) onto the second row */
   grid-row: 2;
-  
-  /* Optional: Style the values */
   text-align: center;
-  margin: 0; /* Remove default <dd> margin */
+  margin: 0; 
 }
 
 /* change color on year div on project page */
@@ -197,4 +188,43 @@ main > a[href*="linkedin"] {
   margin-block: 2em;
 
   overflow: visible;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  list-style: none;
+  padding-left: 0;
+  gap: 0.5rem;
+  border: 2px solid  oklch(26.033% 0.00003 271.152);
+  padding: 1rem;
+}
+
+.container {
+  display: flex;
+  align-items: center; 
+  justify-content: space-around;
+  flex-wrap: wrap; 
+}
+
+.container svg {
+  width: 60%;
+}
+
+.container .legend {
+  width: 40%;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+}
+
+.swatch {
+  background-color: var(--color);
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+  border-radius: 4px; 
 }
