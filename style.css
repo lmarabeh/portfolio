@@ -228,3 +228,10 @@ main > a[href*="linkedin"] {
   margin-right: 0.5em;
   border-radius: 4px; 
 }
+
+.projects article img,
+.projects_home article img {
+  /* Make the image responsive and scale down to fit the width */
+  width: 100%;
+  height: auto; /* The height will adjust automatically */
+}

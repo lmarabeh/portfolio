@@ -7,7 +7,7 @@
     },
     {
         "title": "Principal Component Analysis: Biological Dynamics of Therapeutics.",
-        "image": "https://github.com/lmarabeh/Biological-Dynamics-PCA/blob/ea0ab0755d74c595f22255acc78aadf922692656/LD50.png",
+        "image": "../images/LD50.png",
         "year": "2022",
         "description": "Discovering Principal Components of Biologically Relevant Therapeutics using PCA and Clustering Techniques."
     },
