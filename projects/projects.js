@@ -120,10 +120,17 @@ let query = '';
 
 let searchInput = document.querySelector('.searchBar');
 
-searchInput.addEventListener('change', (event) => {
+searchInput.addEventListener('input', (event) => {  
   // update query value
   query = event.target.value;
-  // TODO: filter the projects
+  // filter the projects
+  let filteredProjects = projects.filter((project) =>
+    project.title.includes(query),
+  );
 
-  // TODO: render updated projects!
+  // Render updated projects
+  projectsContainer.innerHTML = '';
+  filteredProjects.forEach(project => {
+    renderProjects(project, projectsContainer, 'h3');
+  });
 });

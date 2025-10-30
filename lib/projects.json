@@ -1,7 +1,7 @@
 [
     {
         "title": "Steam Review Analysis.",
-        "image": "resources/screenshots/steam_theme/ground_truth.png",
+        "image": "../images/train_vs_test_RMSE.png",
         "year": "2025",
         "description": "Examine a dataset containing more than 100 million Steam reviews and attempt to create two machine learning models: one to predict the helpfulness of user reviews, and the other to create distinct clusters of Steam reviewers."
     },

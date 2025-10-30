@@ -229,9 +229,17 @@ main > a[href*="linkedin"] {
   border-radius: 4px; 
 }
 
-.projects article img,
-.projects_home article img {
-  /* Make the image responsive and scale down to fit the width */
+.projects article img {
   width: 100%;
-  height: auto; /* The height will adjust automatically */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.searchBar {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  font-size: 1em;
+  border: 2px solid oklch(26.033% 0.00003 271.152);
+  border-radius: 5px;
 }
