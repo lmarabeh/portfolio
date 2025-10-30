@@ -1,15 +1,15 @@
 [
     {
-        "title": "Principal Component Analysis: Discovering Principal Components of Biologically Relevant Therapeutics.",
-        "year": "2022",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Discovering Principal Components of Biologically Relevant Therapeutics using PCA and Clustering Techniques."
+        "title": "Steam Review Analysis.",
+        "image": "resources/screenshots/steam_theme/ground_truth.png",
+        "year": "2025",
+        "description": "Examine a dataset containing more than 100 million Steam reviews and attempt to create two machine learning models: one to predict the helpfulness of user reviews, and the other to create distinct clusters of Steam reviewers."
     },
     {
-        "title": "Steam Review Analysis.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "year": "2025",
-        "description": "examine a dataset containing more than 100 million Steam reviews and attempt to create two machine learning models: one to predict the helpfulness of user reviews, and the other to create distinct clusters of Steam reviewers."
+        "title": "Principal Component Analysis: Biological Dynamics of Therapeutics.",
+        "image": "https://github.com/lmarabeh/Biological-Dynamics-PCA/blob/ea0ab0755d74c595f22255acc78aadf922692656/LD50.png",
+        "year": "2022",
+        "description": "Discovering Principal Components of Biologically Relevant Therapeutics using PCA and Clustering Techniques."
     },
     {
         "title": "Magni dignissimos maiores eaque?",

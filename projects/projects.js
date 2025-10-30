@@ -48,25 +48,25 @@ let arc = arcGenerator({
 d3.select('svg').append('path').attr('d', arc).attr('fill', 'red');
 
 // Draw a static pie chart with D3
-let data = [
-  { value: 1, label: 'apples' },
-  { value: 2, label: 'oranges' },
-  { value: 3, label: 'mangos' },
-  { value: 4, label: 'pears' },
-  { value: 5, label: 'limes' },
-  { value: 5, label: 'cherries' },
-];
-let sliceGenerator = d3.pie().value((d) => d.value);
-let arcData = sliceGenerator(data);
-let arcs = arcData.map((d) => arcGenerator(d));
+// let data = [
+//   { value: 1, label: 'apples' },
+//   { value: 2, label: 'oranges' },
+//   { value: 3, label: 'mangos' },
+//   { value: 4, label: 'pears' },
+//   { value: 5, label: 'limes' },
+//   { value: 5, label: 'cherries' },
+// ];
+// let sliceGenerator = d3.pie().value((d) => d.value);
+// let arcData = sliceGenerator(data);
+// let arcs = arcData.map((d) => arcGenerator(d));
 
-let colors = d3.scaleOrdinal(d3.schemeTableau10);
-arcs.forEach((arc, idx) => {
-    d3.select('svg')
-      .append('path')
-      .attr('d', arc)
-      .attr('fill', colors(idx));
-})
+// let colors = d3.scaleOrdinal(d3.schemeTableau10);
+// arcs.forEach((arc, idx) => {
+//     d3.select('svg')
+//       .append('path')
+//       .attr('d', arc)
+//       .attr('fill', colors(idx));
+// })
 
 // Create legend
 // let legend = d3.select('.legend');
@@ -79,6 +79,33 @@ arcs.forEach((arc, idx) => {
 
 
 
+
+
+// Plotting actual data from projects.json
+let projects = await fetchJSON('../lib/projects.json');
+let rolledData = d3.rollups(
+  projects,
+  (v) => v.length,
+  (d) => d.year,
+);
+
+
+let data = rolledData.map(([year, count]) => {
+  return { value: count, label: year };
+});
+
+let sliceGenerator = d3.pie().value((d) => d.value);
+let arcData = sliceGenerator(data);
+let arcs = arcData.map((d) => arcGenerator(d));
+
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
+arcs.forEach((arc, idx) => {
+    d3.select('svg')
+      .append('path')
+      .attr('d', arc)
+      .attr('fill', colors(idx));
+})
+
 // how you add class name as attributes using D3
 let legend = d3.select('.legend');
 data.forEach((d, idx) => {
@@ -88,3 +115,15 @@ data.forEach((d, idx) => {
           .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
 })
 
+// Search bar functionality
+let query = '';
+
+let searchInput = document.querySelector('.searchBar');
+
+searchInput.addEventListener('change', (event) => {
+  // update query value
+  query = event.target.value;
+  // TODO: filter the projects
+
+  // TODO: render updated projects!
+});
