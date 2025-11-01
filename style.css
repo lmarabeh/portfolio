@@ -56,35 +56,77 @@ form button {
   margin: 0 auto;
   padding: 0.3em;
 }
-
-.projects{
+ /* Projects Page CSS */
+.projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+  gap: 1.5rem; /* consistent space between cards */
+  align-items: start; /* align all cards to the top */
+  justify-items: stretch;
+  padding: 1rem 0;
 }
 
-.projects_home{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(17em, 1fr));
-}
-
-.projects_home article{
-  grid-row: span 3;
-  gap: 2em;
-  line-height: 1.1;
-  text-wrap: balance;
-}
-
+/* Each project card */
 .projects article {
-  grid-row: span 3;
-  gap: 1em;
-  line-height: 1.1;
-  text-wrap: balance;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto; /* title, image, description, year */
+  gap: 0.75rem;
+  background-color: Canvas;
+  color: CanvasText;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 0.75em;
+  padding: 1em;
+  box-shadow: 0 2px 6px color-mix(in oklch, black 10%, transparent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.projects h2 {
-  margin: 1.5;
+/* Hover effect for interactivity */
+.projects article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px color-mix(in oklch, black 15%, transparent);
 }
 
+/* Title */
+.projects article h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Image styling */
+.projects article img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.5em;
+}
+
+/* Description text */
+.projects article p {
+  margin: 0;
+  color: CanvasText;
+  line-height: 1.4;
+}
+
+/* Year text */
+.projects article div {
+  color: oklch(72.372% 0.00692 16.664);
+  font-weight: bold;
+  font-style: italic;
+  font-size: 0.95em;
+  align-self: end;
+}
+
+/* Responsive tighter grid on smaller screens */
+@media (max-width: 700px) {
+  .projects {
+    grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Resume Page CSS */
 main > a[href*="linkedin"] {
   display: inline-block;
   margin-bottom: 2em;
@@ -227,12 +269,6 @@ main > a[href*="linkedin"] {
   height: 1em;
   margin-right: 0.5em;
   border-radius: 4px; 
-}
-
-.projects article img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
 }
 
 .searchBar {
