@@ -359,3 +359,81 @@ path {
   text-decoration-style: dashed;
   text-decoration-thickness: 1px;
 }
+
+/* Make gridlines less prominent */
+.gridlines line {
+  stroke: #aaa;
+  stroke-opacity: 0.5;
+}
+
+/*
+  Styles the definition list (<dl>) with the "info" class
+*/
+dl.info {
+  /* 1. Set up the 2-column grid layout */
+  display: grid;
+  grid-template-columns: auto 1fr; /* Labels on 1st col, values on 2nd */
+  
+  /* 2. Remove default margins */
+  margin: 0; 
+
+  /* Optional: Add spacing between rows/columns */
+  gap: 0.25em 0.75em;
+}
+
+/* Styles the labels (<dt>) */
+dl.info dt {
+  /* 3. Make labels less prominent */
+  font-weight: normal;
+  opacity: 0.7;
+}
+
+/* Styles the values (<dd>) */
+dl.info dd {
+  /* 2. Remove default margin from <dd> */
+  margin: 0; 
+  
+  /* 3. Make values more prominent */
+  font-weight: 600; 
+}
+
+/*
+  Styles the main tooltip container
+*/
+.tooltip {
+  /* 4. Position it relative to the viewport */
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  
+  /* Recommended additions:
+    Your tooltip will be invisible without a background
+    and will look cramped without padding.
+  */
+  background: white;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+dl.info {
+  /* ... other styles ... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
