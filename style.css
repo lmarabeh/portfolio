@@ -417,16 +417,46 @@ dl.info dd {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-circle {
+/* This is the default state for ALL circles.
+  We use '.dots .dot' to be specific.
+*/
+.dots .dot {
+  fill: steelblue; /* The default fill you had in D3 */
+  fill-opacity: 0.7;
+  
+  /* Your transition and transform styles */
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
 }
 
-circle:hover {
+/* This is the HOVER state.
+  It activates the opacity and scale.
+*/
+.dots .dot:hover {
+  fill-opacity: 1.0;
   transform: scale(1.5);
 }
 
+/* This is the SELECTED (brushed) state.
+  It uses the red fill you wanted.
+*/
+.dots .dot.selected {
+  fill: #ff6b6b; /* Your red color */
+  fill-opacity: 1.0;
+}
+
+/* This handles hovering over a circle that is ALSO selected.
+  We want it to keep the red fill but still scale up.
+*/
+.dots .dot.selected:hover {
+  transform: scale(1.5);
+}
+
+
+/* Your other styles below are perfectly fine
+  and do not need to be changed.
+*/
 dl.info {
   /* ... other styles ... */
   transition-duration: 500ms;
@@ -436,4 +466,18 @@ dl.info {
 dl.info[hidden]:not(:hover, :focus-within) {
   opacity: 0;
   visibility: hidden;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
 }
