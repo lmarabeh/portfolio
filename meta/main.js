@@ -268,6 +268,25 @@ function updateTooltipPosition(event) {
   tooltip.style.top = `${event.clientY}px`;
 }
 
+// Animation
+let commitProgress = 100;
+let timeScale = d3
+  .scaleTime()
+  .domain([
+    d3.min(commits, (d) => d.datetime),
+    d3.max(commits, (d) => d.datetime),
+  ])
+  .range([0, 100]);
+let commitMaxTime = timeScale.invert(commitProgress);
+
+// Event Listener for slider
+function onTimeSliderChange(event) {
+  // Update the commitProgress variable to the slider value
+  
+
+}
+
+
 // // Brush event handler
 // function brushed(event) {
 //   const selection = event.selection; 
