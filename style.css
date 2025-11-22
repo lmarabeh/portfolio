@@ -8,16 +8,18 @@ body {
   padding: 5ch;
 }
 
-figure{
+figure {
   margin-inline: 0;
 }
-nav ul{
+
+nav ul {
   display: flex;
   justify-content: center;
-  gap: 8rem; 
+  gap: 8rem;
   list-style-type: none;
   margin: 0;
-  padding: 1em;;
+  padding: 1em;
+  ;
 }
 
 nav ul a {
@@ -32,7 +34,8 @@ nav {
   margin-bottom: 3ch;
   border-bottom-width: 7px;
   border-bottom-style: solid;
-  border-bottom-color: oklch(50% 10% 200 / 40%);;
+  border-bottom-color: oklch(50% 10% 200 / 40%);
+  ;
 }
 
 a:hover {
@@ -56,12 +59,15 @@ form button {
   margin: 0 auto;
   padding: 0.3em;
 }
- /* Projects Page CSS */
+
+/* Projects Page CSS */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
-  gap: 1.5rem; /* consistent space between cards */
-  align-items: start; /* align all cards to the top */
+  gap: 1.5rem;
+  /* consistent space between cards */
+  align-items: start;
+  /* align all cards to the top */
   justify-items: stretch;
   padding: 1rem 0;
 }
@@ -69,7 +75,8 @@ form button {
 /* Each project card */
 .projects article {
   display: grid;
-  grid-template-rows: auto auto 1fr auto; /* title, image, description, year */
+  grid-template-rows: auto auto 1fr auto;
+  /* title, image, description, year */
   gap: 0.75rem;
   background-color: Canvas;
   color: CanvasText;
@@ -127,7 +134,7 @@ form button {
 }
 
 /* Resume Page CSS */
-main > a[href*="linkedin"] {
+main>a[href*="linkedin"] {
   display: inline-block;
   margin-bottom: 2em;
   padding: 0.5em 1em;
@@ -138,45 +145,51 @@ main > a[href*="linkedin"] {
   border-radius: 5px;
 }
 
-#education, #work-history {
+#education,
+#work-history {
   display: grid;
   gap: 2em;
   margin-bottom: 2em;
 }
 
-#education h2, #work-history h2 {
+#education h2,
+#work-history h2 {
   margin: 0;
 }
 
 #work-history article {
-  border-left: 3px solid oklch(80% 3% 200); 
-  padding-left: 2em;
-  margin-bottom: 2em;
-}
-
-#education > ul > li {
   border-left: 3px solid oklch(80% 3% 200);
   padding-left: 2em;
   margin-bottom: 2em;
-  list-style: none; 
 }
 
-#education > ul, #work-history article > ul {
+#education>ul>li {
+  border-left: 3px solid oklch(80% 3% 200);
+  padding-left: 2em;
+  margin-bottom: 2em;
+  list-style: none;
+}
+
+#education>ul,
+#work-history article>ul {
   padding-left: 0;
   margin-top: 0.5em;
 }
 
-#work-history article > ul, #education ul {
+#work-history article>ul,
+#education ul {
   padding-left: 1.2em;
 }
 
-#work-history h3, #education h3 {
+#work-history h3,
+#education h3 {
   margin-bottom: 0.25em;
   font-size: 1.2em;
 }
 
-#work-history article > p, #education > ul > li > p {
-  color: #555; 
+#work-history article>p,
+#education>ul>li>p {
+  color: #555;
   margin: 0;
 }
 
@@ -194,9 +207,9 @@ main > a[href*="linkedin"] {
 
 .theme-switcher {
   position: fixed;
-  top: 1rem; 
-  right: 1rem; 
-  z-index: 1000; 
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
 }
 
 /* Profile Stat CSS */
@@ -214,7 +227,7 @@ main > a[href*="linkedin"] {
 #profile-stats dd {
   grid-row: 2;
   text-align: center;
-  margin: 0; 
+  margin: 0;
 }
 
 /* change color on year div on project page */
@@ -238,15 +251,15 @@ main > a[href*="linkedin"] {
   list-style: none;
   padding-left: 0;
   gap: 0.5rem;
-  border: 2px solid  oklch(26.033% 0.00003 271.152);
+  border: 2px solid oklch(26.033% 0.00003 271.152);
   padding: 1rem;
 }
 
 .container {
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: space-around;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 .container svg {
@@ -286,7 +299,7 @@ path {
   width: 1em;
   height: 1em;
   margin-right: 0.5em;
-  border-radius: 4px; 
+  border-radius: 4px;
 }
 
 .searchBar {
@@ -304,25 +317,30 @@ path {
   We make it a two-column grid.
 */
 .stats {
-  /* This turns the <dl> into a grid container */
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 
-  /* Columns: 1st (labels) is auto-width, 2nd (values) takes the rest */
-  grid-template-columns: auto 1fr;
-
-  /* Spacing between rows and columns */
-  gap: 0.5rem 1rem;
-
-  /* Optional: Add a border and padding to make it a "card" */
-  border: 1px solid oklch(80% 0 0 / 0.3); /* Subtle, theme-friendly border */
+  border: 1px solid oklch(80% 0 0 / 0.3);
   border-radius: 8px;
   padding: 1rem;
-  
-  /* Optional: Keep it from getting too wide */
-  max-width: 350px; 
-  
-  /* Reset browser's default list margin */
-  margin: 0; 
+  margin: 2rem 0;
+
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats dt {
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.stats dd {
+  margin: 0;
+  font-weight: 600;
+  font-family: monospace;
+  font-size: 1.5em;
 }
 
 /*
@@ -330,10 +348,10 @@ path {
 */
 .stats dt {
   font-weight: 600;
-  
+
   /* Makes the text slightly faded */
   opacity: 0.7;
-  
+
   /* This aligns the labels to the right,
      making them sit nicely next to the values */
   text-align: left;
@@ -349,7 +367,8 @@ path {
 
   /* Makes the numbers stand out */
   font-weight: 600;
-  font-family: monospace; /* Numbers often look good in monospace */
+  font-family: monospace;
+  /* Numbers often look good in monospace */
   font-size: 1.1em;
 }
 
@@ -372,10 +391,11 @@ path {
 dl.info {
   /* 1. Set up the 2-column grid layout */
   display: grid;
-  grid-template-columns: auto 1fr; /* Labels on 1st col, values on 2nd */
-  
+  grid-template-columns: auto 1fr;
+  /* Labels on 1st col, values on 2nd */
+
   /* 2. Remove default margins */
-  margin: 0; 
+  margin: 0;
 
   /* Optional: Add spacing between rows/columns */
   gap: 0.25em 0.75em;
@@ -391,10 +411,10 @@ dl.info dt {
 /* Styles the values (<dd>) */
 dl.info dd {
   /* 2. Remove default margin from <dd> */
-  margin: 0; 
-  
+  margin: 0;
+
   /* 3. Make values more prominent */
-  font-weight: 600; 
+  font-weight: 600;
 }
 
 /*
@@ -405,7 +425,7 @@ dl.info dd {
   position: fixed;
   top: 1em;
   left: 1em;
-  
+
   /* Recommended additions:
     Your tooltip will be invisible without a background
     and will look cramped without padding.
@@ -421,13 +441,18 @@ dl.info dd {
   We use '.dots .dot' to be specific.
 */
 .dots .dot {
-  fill: steelblue; /* The default fill you had in D3 */
+  fill: steelblue;
+  /* The default fill you had in D3 */
   fill-opacity: 0.7;
-  
+
   /* Your transition and transform styles */
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
+
+  @starting-style {
+    r: 0;
+  }
 }
 
 /* This is the HOVER state.
@@ -442,7 +467,8 @@ dl.info dd {
   It uses the red fill you wanted.
 */
 .dots .dot.selected {
-  fill: #ff6b6b; /* Your red color */
+  fill: #ff6b6b;
+  /* Your red color */
   fill-opacity: 1.0;
 }
 
@@ -470,7 +496,8 @@ dl.info[hidden]:not(:hover, :focus-within) {
 
 @keyframes marching-ants {
   to {
-    stroke-dashoffset: -8; /* 5 + 3 */
+    stroke-dashoffset: -8;
+    /* 5 + 3 */
   }
 }
 
@@ -480,4 +507,64 @@ dl.info[hidden]:not(:hover, :focus-within) {
   stroke-opacity: 0.7;
   stroke-dasharray: 5 3;
   animation: marching-ants 2s linear infinite;
+}
+
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  >div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+  }
+
+  dd {
+    grid-column: 2;
+  }
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: steelblue;
+  border-radius: 50%;
+}
+
+dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+
+  >* {
+    flex: 1;
+  }
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
 }

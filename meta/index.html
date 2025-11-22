@@ -1,62 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css" />
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css" />
+  <script type="module" src="../global.js"></script>
+  <script type="module" src="main.js"></script>
+  <title>Document</title>
 </head>
+
 <body>
-    <header>
-    </header>
-    <main>
+  <header>
+  </header>
+  <main>
     <h1>Meta</h1>
     <p>
       This page includes stats about the code of this website
     </p>
 
     <h2>Overall stats</h2>
+    <label style="display: flex; align-items: baseline;">
+      Show commits until:
+      <input type="range" min="0" max="100" id="commit-progress" value="100">
+      <time id="commit-time" style="margin-left: auto;"></time>
+    </label>
+
     <div id="stats"></div>
 
-    <h2>Commits by time of day</h2>
-    <div id="chart"></div>
+    <dd>
+      <div class="line"></div>
+    </dd>
 
-    <dl id="commit-tooltip" class="info tooltip">
-  <dt>Commit</dt>
-  <dd>
-    <a href="" id="commit-link" target="_blank"></a>
-  </dd>
+    <div id="scrolly-1">
+      <div id="scatter-story">
+        <p>some filler text here</p>
+      </div>
+      <div id="scatter-plot">
+        <h2>Commits by time of day</h2>
+        <div id="chart"></div>
 
-  <dt>Date</dt>
-  <dd id="commit-date"></dd>
+        <dl id="commit-tooltip" class="info tooltip">
+          <dt>Coƒclammit</dt>
+          <dd>
+            <a href="" id="commit-link" target="_blank"></a>
+          </dd>
 
-  <!-- Add: Time, author, lines edited -->
-  <dt>Time</dt>
-  <dd id="commit-time"></dd>
+          <dt>Date</dt>
+          <dd id="commit-date"></dd>
 
-  <dt>Author</dt>
-  <dd id="commit-author"></dd>
+          <!-- Add: Time, author, lines edited -->
+          <dt>Time</dt>
+          <dd id="commit-time"></dd>
 
-  <dt>Lines edited</dt>
-  <dd id="commit-lines"></dd>
-    </dl>
-  <p id="selection-count">No commits selected</p>
-  <dl id="language-breakdown" class="stats"></dl>
+          <dt>Author</dt>
+          <dd id="commit-author"></dd>
 
-    </main>
-
-    <script type="module" src="../global.js"></script>
-    <script type="module" src="main.js"></script>
-  
-  <!-- Time Slider-->
-   <label id="slider-label">
-        Show commits until:
-        <input type="range" min="0" max="100" id="commit-progress" value="-1" />
-        
-        <time id="commit-time"></time>
-        <em id="slider-any-time">(any time)</em>
-
+          <dt>Lines edited</dt>
+          <dd id="commit-lines"></dd>
+        </dl>
+        <p id="selection-count">No commits selected</p>
+        <dl id="language-breakdown" class="stats"></dl>
+      </div>
+    </div>
+  </main>
+  <dl id="files"></dl>
 </body>
-</html>
 
 </html>
