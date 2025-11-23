@@ -1,3 +1,6 @@
 node_modules
 package-lock.json
 package.json
+.DS_Store
+images/.DS_Store
+Project_2/.DS_Store
