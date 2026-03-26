@@ -1,70 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth bg-[#0D0D12] text-[#FAF8F5]">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layth Marabeh | Meta</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Playfair+Display:ital,wght@1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
+  
+  <style>
+    body {
+      background-color: #0D0D12 !important;
+      color: #FAF8F5 !important;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    #chart text, #files text, #stats text {
+      fill: #a0aec0 !important;
+    }
+    .gridlines line {
+      stroke: rgba(255,255,255,0.1) !important;
+    }
+    
+    /* Ensure the globally injected .stats from D3 is beautifully centered */
+    .stats {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 2rem 4rem !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      background-color: rgba(255,255,255,0.02) !important;
+      color: white !important;
+      padding: 2rem !important;
+      border-radius: 1.5rem !important;
+      width: 100% !important;
+      max-width: 800px !important;
+      margin: 0 auto !important;
+    }
+    .stats dt { color: #888 !important; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .stats dd { color: #fff !important; font-size: 2rem !important; margin: 0 !important; }
+    
+    #commit-tooltip {
+      background: #1A1A24 !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      color: #FAF8F5 !important;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8) !important;
+    }
+    #commit-tooltip dt { color: #a0aec0 !important; }
+    #commit-tooltip dd { color: white !important; }
+  </style>
+
   <script type="module" src="../global.js"></script>
   <script type="module" src="main.js"></script>
-  <title>Meta</title>
 </head>
 
-<body>
-  <header>
-  </header>
-  <main>
-    <h1>Meta</h1>
-    <p>
-      This page includes stats about the code of this website
+<body class="antialiased selection:bg-[#C9A84C] selection:text-[#0D0D12] relative overflow-x-hidden min-h-screen flex flex-col pt-32 md:pt-40 pb-20">
+  
+  <div class="pointer-events-none fixed inset-0 z-50 h-[100vh] w-[100vw] opacity-5 mix-blend-overlay">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" preserveAspectRatio="none">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+    </svg>
+  </div>
+
+  <main class="w-full max-w-5xl mx-auto px-4 md:px-0 flex-1 relative z-10 flex flex-col text-left mb-20">
+    <div class="flex flex-col items-start gap-4 mb-6 pt-4 w-full">
+      <div class="h-px w-12 bg-[#C9A84C]"></div>
+      <h2 class="text-xs uppercase tracking-[0.3em] font-mono text-[#C9A84C]">03 // Source Metrics</h2>
+    </div>
+    
+    <h1 class="text-5xl md:text-7xl font-serif italic text-white tracking-tight mb-8 w-full">System Meta</h1>
+    <p class="text-xl text-gray-400 font-sans w-full mb-16 leading-relaxed text-left max-w-2xl">
+      This page processes git logs and meta telemetry to expose structural analytics on the codebase architecture.
     </p>
 
-    <h2>Overall stats</h2>
-    <label style="display: flex; align-items: baseline;">
-      Show commits until:
-      <input type="range" min="0" max="100" id="commit-progress" value="100">
-      <time id="commit-time" style="margin-left: auto;"></time>
-    </label>
+    <h2 class="text-3xl font-sans font-bold text-white mb-8 pb-4 border-b border-white/10 uppercase tracking-widest text-sm inline-block">Overall Telemetry</h2>
+    
+    <div class="bg-[#1A1A24] p-8 md:p-12 rounded-[2.5rem] border border-white/5 shadow-2xl w-full flex flex-col items-center">
+      
+      <!-- Show activity until slider -->
+      <label class="flex flex-col items-center justify-center gap-5 text-sm font-mono text-[#C9A84C] mb-12 w-full max-w-2xl mx-auto bg-black/20 p-8 rounded-2xl border border-white/5">
+        <span class="tracking-widest uppercase text-white font-sans text-xs">Show activity until:</span>
+        <input type="range" min="0" max="100" id="commit-progress" value="100" class="w-full accent-[#C9A84C] bg-white/10 h-1.5 rounded-lg appearance-none cursor-pointer">
+        <time id="commit-time" class="text-[#C9A84C] font-semibold tracking-wider text-lg"></time>
+      </label>
 
-    <dl id="files"></dl>
-    <div id="stats"></div>
+      <!-- The Graph (Moved underneath the slider) -->
+      <div id="scrolly-1" class="flex flex-col w-full gap-8 relative mb-16">
+        <div id="scatter-plot" class="w-full bg-[#101015] p-8 md:p-10 rounded-[2rem] border border-white/5 shadow-inner flex flex-col items-center">
+          <h2 class="text-xl font-sans font-bold text-white mb-8 uppercase tracking-widest text-sm text-center">Commit Densities</h2>
+          
+          <div id="chart" class="mb-4 w-full max-w-4xl flex justify-center"></div>
+          
+          <dl id="commit-tooltip" class="info tooltip hidden"></dl>
+          
+          <div class="mt-8 pt-6 border-t border-white/10 text-center w-full">
+            <p id="selection-count" class="font-mono text-sm text-[#C9A84C] uppercase tracking-widest mb-4">No commits selected</p>
+            <dl id="language-breakdown" class="stats hidden mx-auto"></dl>
+          </div>
+        </div>
 
-    <dd>
-      <div class="line"></div>
-    </dd>
-
-    <div id="scrolly-1">
-      <div id="scatter-story">
-        <p>The story of this website</p>
+        <!-- The Scrolly Story Text -->
+        <div id="scatter-story" class="w-full max-w-4xl mx-auto h-72 overflow-y-auto bg-[#181822] border border-white/5 shadow-inner rounded-3xl p-8 text-center custom-scrollbar relative">
+          <p class="text-gray-400 font-sans text-sm drop-shadow mb-8 italic w-full">Tracking commits and iterations over time...</p>
+        </div>
+        <style>
+          .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+          .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+          .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(201, 168, 76, 0.3); border-radius: 4px; }
+          .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(201, 168, 76, 0.5); }
+        </style>
       </div>
-      <div id="scatter-plot">
-        <h2>Commits by time of day</h2>
-        <div id="chart"></div>
 
-        <dl id="commit-tooltip" class="info tooltip">
-          <dt>Coƒclammit</dt>
-          <dd>
-            <a href="" id="commit-link" target="_blank"></a>
-          </dd>
-
-          <dt>Date</dt>
-          <dd id="commit-date"></dd>
-
-          <!-- Add: Time, author, lines edited -->
-          <dt>Time</dt>
-          <dd id="commit-time"></dd>
-
-          <dt>Author</dt>
-          <dd id="commit-author"></dd>
-
-          <dt>Lines edited</dt>
-          <dd id="commit-lines"></dd>
-        </dl>
-        <p id="selection-count">No commits selected</p>
-        <dl id="language-breakdown" class="stats"></dl>
-      </div>
+      <!-- The Stats (Moved underneath the graph, beautifully centered) -->
+      <h2 class="text-xl font-sans font-bold text-white mb-6 uppercase tracking-widest text-sm text-center">Aggregate Statistics</h2>
+      <div id="stats" class="flex flex-col items-center justify-center w-full mx-auto pb-4"></div>
+      
     </div>
-  </main>
-</body>
 
+    <!-- Hidden Files block but retained in DOM for JS -->
+    <div class="mt-20 hidden">
+      <dl id="files" class="text-sm font-mono text-gray-400 tracking-wide"></dl>
+      <dd class="hidden"><div class="line"></div></dd>
+    </div>
+
+  </main>
+  
+  <footer class="mt-auto w-full text-center py-8 text-gray-600 font-mono text-xs z-10 opacity-70 border-t border-white/5 relative">
+    <p>© 2026 Layth Marabeh // Data Meta Analytics</p>
+  </footer>
+
+</body>
 </html>

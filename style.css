@@ -1,46 +1,10 @@
-body {
-  /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
-  font: 100%/1.5 system-ui;
-  max-width: 100ch;
-  margin: auto;
-  padding: 5ch;
-}
+
 
 figure {
   margin-inline: 0;
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 8rem;
-  list-style-type: none;
-  margin: 0;
-  padding: 1em;
-  ;
-}
 
-nav ul a {
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  color: inherit;
-  padding: 0.5em;
-}
-
-nav {
-  margin-bottom: 3ch;
-  border-bottom-width: 7px;
-  border-bottom-style: solid;
-  border-bottom-color: oklch(50% 10% 200 / 40%);
-  ;
-}
-
-a:hover {
-  background-color: teal;
-}
 
 html {
   accent-color: green;
@@ -545,26 +509,4 @@ dd {
   gap: 0.15em;
   padding-top: 0.6em;
   margin-left: 0;
-}
-
-#scrolly-1 {
-  position: relative;
-  display: flex;
-  gap: 1rem;
-
-  >* {
-    flex: 1;
-  }
-}
-
-#scatter-story {
-  position: relative;
-}
-
-#scatter-plot {
-  position: sticky;
-  top: 0;
-  left: 0;
-  bottom: auto;
-  height: 50vh;
 }

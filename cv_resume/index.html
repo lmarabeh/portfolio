@@ -1,117 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth bg-[#0D0D12] text-[#FAF8F5]">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV/Resume</title>
-    <link rel="stylesheet" href="../style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layth Marabeh | CV & Resume</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Playfair+Display:ital,wght@1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  
+  <style>
+    body {
+      background-color: #0D0D12 !important;
+      color: #FAF8F5 !important;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    main > a[href*="linkedin"] {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: transparent !important;
+      color: #C9A84C !important;
+      border: 1px solid #C9A84C !important;
+      padding: 0.75rem 1.5rem !important;
+      border-radius: 50px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 0.85rem !important;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease !important;
+    }
+    main > a[href*="linkedin"]:hover {
+      background-color: #C9A84C !important;
+      color: #000 !important;
+      transform: translateY(-2px);
+    }
+    
+    .timeline-item {
+      border-left: 2px solid rgba(255,255,255,0.1) !important;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 0;
+      width: 8px;
+      height: 8px;
+      background-color: #C9A84C;
+      border-radius: 50%;
+    }
+  </style>
 </head>
-<body>
-  <header>
+<body class="antialiased selection:bg-[#C9A84C] selection:text-[#0D0D12] relative overflow-x-hidden min-h-screen flex flex-col pt-32 md:pt-40 pb-20">
+  
+  <div class="pointer-events-none fixed inset-0 z-50 h-[100vh] w-[100vw] opacity-5 mix-blend-overlay">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" preserveAspectRatio="none">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+    </svg>
+  </div>
+
+  <main class="w-full max-w-3xl mx-auto px-4 md:px-0 flex-1 relative z-10 flex flex-col text-left">
+    <div class="flex flex-col items-start gap-4 mb-6 pt-4 w-full">
+      <div class="h-px w-12 bg-[#C9A84C]"></div>
+      <h2 class="text-xs uppercase tracking-[0.3em] font-mono text-[#C9A84C]">02 // Professional Profile</h2>
+    </div>
     
-  </header>
-    
-  <main>
-    <h1>Layth Marabeh Resume</h1>
-    <a href="linkedin.com/in/laythmarabeh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    <article>
-      <section id="education">
-    <h2>Education</h2>
+    <div class="flex flex-col items-start justify-center gap-6 mb-20 w-full">
+      <h1 class="text-5xl md:text-7xl font-serif italic text-white tracking-tight leading-tight">Layth<br>Marabeh</h1>
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mt-2">
+        <a href="https://linkedin.com/in/layth-m" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        <a href="Marabeh%20Resume%2026.pdf" target="_blank" rel="noopener noreferrer">Download PDF</a>
+      </div>
+    </div>
 
-    <ul>
-        <li>
-            <h3>University of California, Santa Barbara</h3>
-            <p><strong>Degree:</strong> Bachelors in Molecular Biology & Biochemistry</p>
-            <p><strong>Graduation Date:</strong> June 2023</p>
-            <ul>
-                <li>Honors: Dean's List</li>
-            </ul>
+    <section id="education" class="mb-24 w-full">
+      <h2 class="text-3xl font-sans font-bold text-white mb-10 pb-4 border-b border-white/10 uppercase tracking-widest text-sm inline-block">Education</h2>
+      <ul class="space-y-12 w-full">
+        <li class="pl-8 !mb-8 timeline-item">
+            <h3 class="text-2xl font-serif text-white mb-2">University of California, <span class="text-[#C9A84C] italic">San Diego</span></h3>
+            <p class="font-sans text-gray-300 font-medium mb-1">Masters in Data Science</p>
+            <p class="font-mono text-sm text-gray-500">2024 - 2026</p>
         </li>
-        <li>    
-            <h3>University of California, San Diego</h3>
-            <p><strong>Degree:</strong> Masters in Data Science</p>
-            <p><strong>Graduation Date:</strong> March 2026</p>
-            <ul>
-                <li>Honors: Dean's List</li>
-            </ul>
+        <li class="pl-8 timeline-item">
+            <h3 class="text-2xl font-serif text-white mb-2">University of California, <span class="text-[#C9A84C] italic">Santa Barbara</span></h3>
+            <p class="font-sans text-gray-300 font-medium mb-1">Bachelors in Molecular Biology & Biochemistry</p>
+            <p class="font-mono text-sm text-gray-500">2019 - 2023</p>
         </li>
-    </ul>
+      </ul>
+    </section>
 
-</section>
+    <section id="work-history" class="mb-24 w-full">
+      <h2 class="text-3xl font-sans font-bold text-white mb-10 pb-4 border-b border-white/10 uppercase tracking-widest text-sm inline-block">Work Experience</h2>
 
-   <section id="work-history">
-    <h2>Work History</h2>
+      <div class="w-full">
+      <article class="pl-8 !mb-16 timeline-item">
+          <h3 class="text-2xl font-serif text-white mb-2">Rep. Patient Registry</h3>
+          <p class="font-sans text-gray-300 mb-4 flex flex-wrap items-center gap-2 md:gap-4">
+              <strong class="text-[#C9A84C] font-normal tracking-wide">Edwards Lifesciences</strong> 
+              <span class="hidden md:inline text-white/20">|</span> 
+              <span class="text-white/60 text-sm font-mono tracking-widest">Irvine, CA</span>
+              <span class="hidden md:inline text-white/20">|</span> 
+              <span class="text-white/40 text-sm font-mono tracking-widest bg-white/5 py-1 px-3 rounded-full">2024 &ndash; Present</span>
+          </p>
+          <ul class="space-y-3 font-sans text-gray-400 leading-relaxed list-disc marker:text-[#C9A84C] ml-4">
+              <li>Led the data cleaning, transformation, and validation of sensitive healthcare records, ensuring high-integrity datasets for enterprise-wide longitudinal analysis and operational improvements.</li>
+              <li>Delivered end-to-end data engineering projects utilizing Python to build robust data pipelines, supporting critical research and reporting initiatives across multiple Business Units (BUs).</li>
+              <li>Developed complex data models and automated reporting dashboards using DAX and Power BI, translating large-scale patient registry data into actionable insights for cross-functional stakeholders.</li>
+              <li>Utilized Salesforce and Qualityze to manage and track medical device product data, patient records, and adverse event reports, ensuring timely documentation and alignment with FDA reporting requirements.</li>
+          </ul>
+      </article>
 
-    <article>
-        <h3>IPR Data Analyst</h3>
-        <p>
-            <strong>Edwards Lifesciences</strong> | Irvine, CA | 
-            <time datetime="2024-07">July 2024</time> &ndash; 
-            Present
-        </p>
+      <article class="pl-8 !mb-16 timeline-item">
+          <h3 class="text-2xl font-serif text-white mb-2">Ophthalmic Technician</h3>
+          <p class="font-sans text-gray-300 mb-4 flex flex-wrap items-center gap-2 md:gap-4">
+              <strong class="text-[#C9A84C] font-normal tracking-wide">California Retina Consultants</strong> 
+              <span class="hidden md:inline text-white/20">|</span> 
+              <span class="text-white/60 text-sm font-mono tracking-widest">Santa Barbara, CA</span>
+              <span class="hidden md:inline text-white/20">|</span> 
+              <span class="text-white/40 text-sm font-mono tracking-widest bg-white/5 py-1 px-3 rounded-full">2022 &ndash; 2023</span>
+          </p>
+          <ul class="space-y-3 font-sans text-gray-400 leading-relaxed list-disc marker:text-[#C9A84C] ml-4">
+              <li>Initiated patient evaluation for 50+ patients/week and accurately documented chief complaint, history, systems review, ocular and general medications, and ocular findings in accordance with compliance guidelines.</li>
+              <li>Operated advance imaging machinery such as Optical Coherence Tomography and Fundus Retinal Camera Machine to facilitate accurate diagnoses.</li>
+              <li>Maintained patient charts on secure servers, maintaining compliance with HIPAA and confidentiality standards.</li>
+              <li>Managed full lifecycle of clinical research data for FDA submissions, ensuring strict adherence to human subjects research protocols and HIPAA/IRB standards.</li>
+          </ul>
+      </article>
 
-        <ul>
-            <li>
-                Conduct data entry, analysis, and quality control for medical device implantation records from hospitals
-                across the US and internationally, ensuring data integrity and accuracy.
-            </li>
-            <li>
-                Utilized statistical methods and data visualization tools such as SQL, SAS, and Power BI to communicate
-                findings effectively, aiding decision-making processes.
-            </li>
-            <li>
-                Utilize Salesforce to manage and track medical device product data, patient records, and adverse event
-                reports, ensuring timely documentation and alignment with FDA reporting requirements.
-            </li>
-        </ul>
-    </article>
+      <article class="pl-8 !mb-8 timeline-item">
+          <h3 class="text-2xl font-serif text-white mb-2">Drug Trial Research Intern</h3>
+          <p class="font-sans text-gray-300 mb-4 flex flex-wrap items-center gap-2 md:gap-4">
+              <strong class="text-[#C9A84C] font-normal tracking-wide">BTS Research</strong> 
+              <span class="hidden md:inline text-white/20">|</span> 
+              <span class="text-white/60 text-sm font-mono tracking-widest">San Diego, CA</span>
+              <span class="hidden md:inline text-white/20">|</span> 
+              <span class="text-white/40 text-sm font-mono tracking-widest bg-white/5 py-1 px-3 rounded-full">2018 &ndash; 2019</span>
+          </p>
+          <ul class="space-y-3 font-sans text-gray-400 leading-relaxed list-disc marker:text-[#C9A84C] ml-4">
+              <li>Facilitated seamless communication between clients and internal departments (Quality, Manufacturing, Clinical, Regulatory) fostering collaboration to optimize service delivery.</li>
+              <li>Conducted 35+ in vivo and in vitro experiments/month in a laboratory setting, including cell cultures and analytical tests.</li>
+              <li>Executed quantitative and qualitative data collection protocols for in vivo studies, ensuring reproducibility and rigorous quality control.</li>
+              <li>Utilized a Clinical Trial Management System (CTMS) to oversee planning, execution, and reporting phases of clinical trials, ensuring adherence to regulatory standards.</li>
+          </ul>
+      </article>
+      </div>
+    </section>
 
-    <article>
-        <h3>Ophthalmic Technician</h3>
-        <p>
-            <strong>California Retina Consultants</strong> | Santa Barbara, CA | 
-            <time datetime="2022-09">January 2019</time> &ndash; 
-            <time datetime="2023-04">April 2023</time>
-        </p>
-        <ul>
-            <li>Initiated patient evaluation for 50+ patients/week and accurately documented chief complaint, history of
-                present illness, review of systems, current ocular and general medications, and all other pertinent ocular
-                findings in accordance with compliance guidelines
-            </li>
-            <li>Operated advance imaging machinery such as Optical Coherence Tomography and Fundus Retinal Camera
-                Machine, to facilitate accurate diagnoses and treatment planning for patients
-            </li>
-            <li>Collected, managed, and analyzed clinical trial data, using Power BI to create reports for internal use and
-                FDA submissions, contributing to the preparation of submissions for cutting-edge ocular treatments.
-            </li>
-        </ul>
-    </article>
+    <section id="academic-projects" class="mb-24 w-full">
+      <h2 class="text-3xl font-sans font-bold text-white mb-10 pb-4 border-b border-white/10 uppercase tracking-widest text-sm inline-block">Academic Research Projects</h2>
 
-        <article>
-        <h3>Drug Trial Research Intern</h3>
-        <p>
-            <strong>BTS Research</strong> | San Diego, CA | 
-            <time datetime="2018-06">June 2018</time> &ndash; 
-            <time datetime="2019-08">August 2019</time>
-        </p>
-        <ul>
-            <li>Facilitated seamless communication between clients and internal departments (i.e., Quality, Manufacturing,
-                Clinical, Regulatory) at BTS, fostering collaboration across diverse teams to optimize service delivery
-            </li>
-            <li>Conducted 20+ of in vivo and in vitro experiments/month in a laboratory setting, including the creation and
-                maintenance of cell cultures, and performed analytical tests to ensure the efficacy of experimental protocols
-            </li>
-            <li>Played a key role in data collection, entry, and quality control processes, contributing to the comprehensive
-                evaluation and reporting of findings from active drug trials
-            </li>
-            <li>
-                tilized a Clinical Trial Management System (CTMS) to oversee the planning, execution, and reporting
-                phases of clinical trials, ensuring adherence to protocols and regulatory standards
-            </li>            
-        </ul>
-    </article>
-</section>  
+      <div class="w-full space-y-12">
+        <div class="pl-8 timeline-item">
+            <h3 class="text-2xl font-serif text-white mb-2">Data Management and Big Data</h3>
+            <ul class="space-y-3 font-sans text-gray-400 leading-relaxed list-disc marker:text-[#C9A84C] ml-4">
+                <li>Utilize SQL and cluster programming techniques such as MapReduce and Spark to perform data transformations for ML at scale.</li>
+                <li>Apply the relational model, relational algebra, SQL, and major relational DBMS features for data querying and analytics.</li>
+                <li>Designed a distributed data analysis pipeline using Apache Spark and XGBoost to model complex patterns in multi-gigabyte datasets, simulating social behavior prediction models.</li>
+            </ul>
+        </div>
+        <div class="pl-8 timeline-item">
+            <h3 class="text-2xl font-serif text-white mb-2">Multi-Label Classification in Chest Radiography</h3>
+            <ul class="space-y-3 font-sans text-gray-400 leading-relaxed list-disc marker:text-[#C9A84C] ml-4">
+                <li>Engineered a deep learning pipeline to automate the multi-label classification of 14 thoracic pathologies across a large-scale dataset of 112,120 chest X-rays, systematically comparing CNNs (DenseNet-121, ResNet-50) and Vision Transformers (MedViT).</li>
+            </ul>
+        </div>
+      </div>
+    </section>
 
-<script type="module" src="../global.js"></script>
+    <section id="skills" class="mb-24 w-full">
+      <h2 class="text-3xl font-sans font-bold text-white mb-10 pb-4 border-b border-white/10 uppercase tracking-widest text-sm inline-block">Skills</h2>
+      <div class="flex flex-wrap gap-3 w-full font-mono text-sm text-[#FAF8F5]">
+        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full hover:bg-[#C9A84C] hover:text-black transition-colors">Python</span>
+        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full hover:bg-[#C9A84C] hover:text-black transition-colors">Data Engineering</span>
+        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full hover:bg-[#C9A84C] hover:text-black transition-colors">DAX & Power BI</span>
+        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full hover:bg-[#C9A84C] hover:text-black transition-colors">R & SQL</span>
+        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full hover:bg-[#C9A84C] hover:text-black transition-colors">Salesforce</span>
+        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full hover:bg-[#C9A84C] hover:text-black transition-colors">Data Modeling</span>
+        <span class="bg-white/5 border border-white/10 px-4 py-2 rounded-full hover:bg-[#C9A84C] hover:text-black transition-colors">Clinical Trials</span>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="mt-auto w-full text-center py-8 text-gray-600 font-mono text-xs z-10 opacity-70 border-t border-white/5 relative">
+    <p>© 2026 Layth Marabeh // System Operational</p>
+  </footer>
+
+  <script type="module" src="../global.js"></script>
 </body>
 </html>

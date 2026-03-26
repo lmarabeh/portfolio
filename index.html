@@ -1,51 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth bg-[#0D0D12] text-[#FAF8F5]">
 <head>
-  <meta charset="UTF-8" >
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layth Marabeh: Personal site and portfolio</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-
-  <main>
-    </main>
+  <title>Layth Marabeh | Software Engineer & Creative</title>
   
-  <script src="global.js" type="module"></script>
-  <script src="index.js" type="module"></script>
-  <header>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandDark: '#0D0D12',
+            brandAccent: '#C9A84C',
+            brandLight: '#FAF8F5',
+            brandGray: '#2B2B36'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Playfair+Display:ital,wght@1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Custom non-tailwind css */
+    body {
+      background-color: #0D0D12 !important;
+      color: #FAF8F5 !important;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
     
-  </header>
-  <div>
-  <main>
-    <h1>Layth Marabeh</h1>
-    <p>
-      Hi everyone! My name is Layth Marabeh and I work with data 
-      at a medical device company. I am also a student in the MDSO 
-      program at UCSD. I'm a huge fan of outdoor activities like 
-      visiting the beach, snowboarding, hiking, and playing pickleball!
-    </p>
-
-    <div id="profile-stats"></div>
-
-  </main>
-  <figure>
-  <img 
-    src="images/IMG_7614.jpg" 
-    alt="A person smiling at the camera with the mountains and a lake of Glacier National Park in the background." 
-    width="450" 
-    height="600"
-  />
-  <figcaption>This is me at Glacier National Park</figcaption>
-  </figure>
+    .magnetic-btn {
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brandAccent selection:text-brandDark relative overflow-x-hidden min-h-screen flex flex-col">
+  <!-- Noise Overlay -->
+  <div class="pointer-events-none fixed inset-0 z-50 h-[100vh] w-[100vw] opacity-5 mix-blend-overlay">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" preserveAspectRatio="none">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+    </svg>
   </div>
+
+  <script src="global.js" type="module"></script>
   
-  <h1>Latest Projects</h1>
-  <div class="projects_home">
-  </div>
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative flex min-h-[100dvh] w-full flex-col justify-end px-8 pb-32 md:px-20 md:pb-40">
+    <div class="relative z-10 max-w-5xl">
+      <h1 class="hero-text text-5xl md:text-8xl font-sans font-extrabold tracking-tight text-white mb-4">
+        Data meets
+        <span class="block font-serif italic text-brandAccent font-normal mt-2 text-6xl md:text-9xl tracking-normal">Precision.</span>
+      </h1>
+      <p class="hero-text mt-8 max-w-2xl text-lg md:text-2xl text-gray-400 font-sans leading-relaxed">
+        I'm <span class="text-white font-medium">Layth Marabeh</span>. A Data Scientist and UCSD Master's graduate blending analytical rigor with creative engineering to build impactful systems.
+      </p>
+      <div class="hero-text mt-12 flex gap-6">
+        <a href="#projects-section" class="magnetic-btn group relative overflow-hidden rounded-full bg-brandAccent px-8 py-4 text-brandDark font-semibold transition-transform shrink-0">
+          <span class="relative z-10 flex items-center gap-2">View Archive <svg width="15" height="15" viewBox="0 0 15 15" fill="none" class="opacity-70 group-hover:opacity-100 transition-opacity"><path d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 10.2929L11.1464 7.14645C11.3417 6.95118 11.6583 6.95118 11.8536 7.14645C12.0488 7.34171 12.0488 7.65829 11.8536 7.85355L7.85355 11.8536C7.75979 11.9474 7.63261 12 7.5 12C7.36739 12 7.24021 11.9474 7.14645 11.8536L3.14645 7.85355C2.95118 7.65829 2.95118 7.34171 3.14645 7.14645C3.34171 6.95118 3.65829 6.95118 3.85355 7.14645L7 10.2929L7 2.5C7 2.22386 7.22386 2 7.5 2Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
+          <div class="absolute inset-0 transform translate-y-full bg-white transition-transform duration-500 ease-in-out group-hover:translate-y-0"></div>
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <!-- MANIFESTO SECTION -->
+  <section id="manifesto" class="relative w-full py-40 px-8 md:px-20 bg-brandDark border-t border-white/5">
+    <div class="max-w-5xl mx-auto">
+      <p class="manifesto-text text-3xl md:text-5xl font-sans font-medium text-gray-500 leading-[1.3] md:leading-[1.4]">
+        Most data science focuses on <span class="text-white">building accurate models.</span> <br><br>
+        I focus on <span class="font-serif italic text-brandAccent md:text-[1.2em]">deploying impact</span> and making intelligent systems that actually scale.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECTS SHOWCASE -->
+  <section id="projects-section" class="relative w-full pt-32 pb-40">
+    <div class="px-8 md:px-20 mb-20 max-w-5xl mx-auto">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="h-px w-12 bg-brandAccent"></div>
+        <h2 class="text-xs uppercase tracking-[0.3em] font-mono text-brandAccent">01 // Archive</h2>
+      </div>
+      <h3 class="text-5xl md:text-7xl font-serif italic text-white tracking-tight">Selected Works</h3>
+    </div>
+    
+    <div class="projects_home flex flex-col items-center max-w-6xl mx-auto px-4 md:px-8 space-y-4 md:space-y-12">
+      <!-- Injected by index.js -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto relative w-full bg-[#111118] rounded-t-[3rem] border-t border-white/5 pt-24 pb-12 px-8 md:px-20 z-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-12">
+      <div>
+        <h2 class="text-5xl md:text-7xl font-serif italic text-white mb-4">Let's build.</h2>
+        <p class="text-gray-400 font-sans text-lg max-w-sm">Open for professional opportunities and collaborative development.</p>
+      </div>
+      <div class="flex items-center gap-3 bg-black/40 px-5 py-3 rounded-full border border-white/10 shrink-0">
+        <div class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.6)]"></div>
+        <span class="font-mono text-xs text-green-400 tracking-widest uppercase">System Operational</span>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between pt-10 border-t border-white/10 text-gray-500 font-mono text-sm gap-6">
+       <p>© <span id="year">2026</span> Layth Marabeh. All rights reserved.</p>
+       <div class="flex gap-8">
+         <a href="https://github.com/lmarabeh" class="hover:text-white transition-colors">GitHub // lmarabeh</a>
+         <a href="https://www.linkedin.com/in/layth-m" class="hover:text-white transition-colors">LinkedIn</a>
+       </div>
+    </div>
+  </footer>
+
+  <div id="profile-stats"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="index.js" type="module"></script>
 </body>
 </html>
-
-

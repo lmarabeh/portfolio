@@ -1,34 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth bg-[#0D0D12] text-[#FAF8F5]">
 <head>
-  <meta charset="UTF-8" >
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects</title>
-  <link rel="stylesheet" href="../style.css">
+  <title>Layth Marabeh | Projects</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Playfair+Display:ital,wght@1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  
+  <style>
+    body {
+      background-color: #0D0D12 !important;
+      color: #FAF8F5 !important;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    /* Search Bar custom dark styling */
+    .searchBar {
+      background-color: #1A1A24 !important;
+      color: #FAF8F5 !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      padding: 1rem 1.5rem !important;
+      border-radius: 2rem !important;
+      width: 100%;
+      max-width: 600px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    .searchBar:focus {
+      border-color: #C9A84C !important;
+    }
+
+    /* D3 styling overrides for dark mode */
+    .legend {
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: #FAF8F5 !important;
+    }
+    text {
+      fill: #FAF8F5 !important;
+    }
+  </style>
 </head>
-<body>
-  <header>
+<body class="antialiased selection:bg-[#C9A84C] selection:text-[#0D0D12] relative overflow-x-hidden min-h-screen flex flex-col pt-32 md:pt-40 pb-20">
+  
+  <!-- Noise Overlay -->
+  <div class="pointer-events-none fixed inset-0 z-50 h-[100vh] w-[100vw] opacity-5 mix-blend-overlay">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" preserveAspectRatio="none">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+    </svg>
+  </div>
 
-  </header>
+  <main class="w-full max-w-5xl mx-auto px-4 md:px-0 flex-1 relative z-10 flex flex-col text-left">
+    <div class="flex flex-col items-start gap-4 mb-6 pt-4 w-full">
+      <div class="h-px w-12 bg-[#C9A84C]"></div>
+      <h2 class="text-xs uppercase tracking-[0.3em] font-mono text-[#C9A84C]">01 // Project Details</h2>
+    </div>
+    <h1 class="projects-title text-5xl md:text-7xl font-serif italic text-white tracking-tight mb-16 w-full">Data Archive</h1>
 
-  <main>
-    <h1 class = 'projects-title'>Projects</h1>
-
-    <div class="container">
-      <svg id="projects-pie-plot" viewBox="-50 -50 100 100"></svg>
-      <ul class="legend"></ul>
+    <div class="container flex flex-col gap-8 items-center justify-center bg-[#181822] p-8 md:p-12 rounded-[2rem] border border-white/5 mb-16 shadow-2xl w-full mx-auto">
+      <div class="w-full md:w-1/2 flex justify-center">
+        <svg id="projects-pie-plot" viewBox="-50 -50 100 100" class="w-full max-w-[250px] drop-shadow-2xl"></svg>
+      </div>
+      <div class="w-full flex flex-col items-center text-center">
+        <h3 class="text-2xl font-sans font-semibold mb-6 text-white w-full">Project Distribution</h3>
+        <ul class="legend grid grid-cols-2 gap-4 text-sm font-mono text-gray-400 justify-center"></ul>
+      </div>
     </div>
     
-    <input
-      class="searchBar"
-      type="search"
-      aria-label="Search projects"
-      placeholder="🔍 Search projects…"
-    />
+    <div class="flex justify-center mb-16 relative">
+      <input
+        class="searchBar font-mono text-sm shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+        type="search"
+        aria-label="Search projects"
+        placeholder="SEARCH ARCHIVE..."
+      />
+    </div>
 
+    <!-- The projects container that global.js/projects.js will inject styled articles into.
+         Note: We assume projects.js handles rendering, we can let it render with the legacy layout or let the user fix it.
+         Wait, we should style `.projects` grid to match Tailwind spacing since projects.js creates articles without tailwind. -->
+    <style>
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        width: 100%;
+        max-width: 6xl;
+        justify-content: center;
+        justify-items: center;
+      }
+      .projects article {
+        background-color: #1A1A24 !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        border-radius: 1.5rem !important;
+        padding: 2rem !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        text-align: left;
+        width: 100%;
+        max-width: 400px;
+      }
+      .projects article:hover {
+        transform: translateY(-8px) scale(1.02) !important;
+        border-color: rgba(201, 168, 76, 0.3) !important;
+      }
+      .projects article h2, .projects article h3 {
+        color: #fff !important;
+        font-family: 'Inter', sans-serif !important;
+        font-weight: 700 !important;
+        margin-bottom: 1rem !important;
+      }
+      .projects article p {
+        color: #a0aec0 !important;
+        font-family: 'Inter', sans-serif !important;
+        line-height: 1.6 !important;
+      }
+      .projects article div {
+        color: #C9A84C !important;
+        font-family: 'JetBrains Mono', monospace !important;
+        letter-spacing: 0.1em;
+        font-size: 0.8em;
+        margin-top: 1rem;
+      }
+      .projects article img {
+        border-radius: 1rem !important;
+        margin-bottom: 1.5rem !important;
+        object-fit: cover !important;
+      }
+    </style>
     <div class="projects"></div>
     
   </main>
+  
+  <!-- Footer simplified for subpages -->
+  <footer class="mt-32 w-full text-center py-8 text-gray-600 font-mono text-xs z-10 opacity-70 border-t border-white/5 relative">
+    <p>© 2026 Layth Marabeh // System Operational</p>
+  </footer>
+
   <script type="module" src="../global.js"></script>
   <script src="projects.js" type="module"></script>
 </body>

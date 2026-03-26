@@ -59,7 +59,7 @@ function renderPieChart(projectsGiven) {
   let newArcData = newSliceGenerator(pieData); 
 
   // Clear old paths and legends
-  const svg = d3.select('svg');
+  const svg = d3.select('#projects-pie-plot');
   svg.selectAll('*').remove();
   
   const legend = d3.select('.legend');
@@ -135,7 +135,7 @@ function updateVisualState() {
   projectsTitle.textContent = title;
 
   // Update the chart/legend styles
-  d3.select('svg').selectAll('path')
+  d3.select('#projects-pie-plot').selectAll('path')
     .attr('class', (_, idx) => (
       selectedIndex === -1
         ? null

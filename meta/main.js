@@ -396,16 +396,16 @@ d3.select('#scatter-story')
   .selectAll('.step')
   .data(commits)
   .join('div')
-  .attr('class', 'step')
+  .attr('class', 'step text-gray-300 font-sans text-sm md:text-base leading-relaxed mb-6 p-6 bg-white/5 rounded-2xl border border-white/5 transition-all duration-300')
   .html(
     (d, i) => `
-		On ${d.datetime.toLocaleString('en', {
-      dateStyle: 'full',
+		<div class="text-[#C9A84C] font-mono text-xs uppercase tracking-widest mb-2">${d.datetime.toLocaleString('en', {
+      dateStyle: 'long',
       timeStyle: 'short',
-    })},
-		I made <a href="${d.url}" target="_blank">${
+    })}</div>
+		I made <a href="${d.url}" target="_blank" class="text-white font-semibold hover:text-[#C9A84C] transition-colors">${
       i > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'
-    }</a>.
+    }</a>.<br>
 		I edited ${d.totalLines} lines across ${
       d3.rollups(
         d.lines,
@@ -413,24 +413,35 @@ d3.select('#scatter-story')
         (d) => d.file,
       ).length
     } files.
-		Then I looked over all I had made, and I saw that it was very good.
 	`,
   );
 
-import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
-function onStepEnter(response) {
-  const commit = response.element.__data__;
-  const filteredCommits = commits.filter((d) => d.datetime <= commit.datetime);
-  updateScatterPlot(filteredCommits);
-  updateFileDisplay(filteredCommits);
-}
-const scroller = scrollama();
-scroller
-  .setup({
-    container: '#scrolly-1',
-    step: '#scrolly-1 .step',
-  })
-  .onStepEnter(onStepEnter);
+// Native IntersectionObserver to replace scrollama for a bounded container
+const storyContainer = document.querySelector('#scatter-story');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const commit = entry.target.__data__;
+      const filteredCommits = commits.filter((d) => d.datetime <= commit.datetime);
+      updateScatterPlot(filteredCommits);
+      updateFileDisplay(filteredCommits);
+      
+      // Visual feedback for the active step
+      d3.selectAll('.step').classed('border-[#C9A84C] bg-white/10 shadow-lg scale-[1.02]', false);
+      d3.select(entry.target).classed('border-[#C9A84C] bg-white/10 shadow-lg scale-[1.02]', true);
+    }
+  });
+}, {
+  root: storyContainer,
+  rootMargin: '0px 0px -50% 0px', // Triggers when the element hits the middle of the scrollbox
+  threshold: 0
+});
+
+d3.selectAll('.step').each(function() {
+  observer.observe(this);
+});
+
+// IntersectionObserver is handling scroll step events now.
 // // Brush event handler
 // function brushed(event) {
 //   const selection = event.selection; 
