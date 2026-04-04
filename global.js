@@ -31,7 +31,7 @@ let pages = [
   { url: 'meta/', title: 'Meta' }
 ];
 
-const BASE_PATH = location.hostname === 'localhost' || location.hostname === '127.0.0.1' ? '/' : '/portfolio/';
+const BASE_PATH = location.hostname.includes('github.io') ? '/portfolio/' : '/';
 
 function initializeNavbar() {
   const currentPath = location.pathname;
